@@ -1,0 +1,8 @@
+create-lambda-function
+aws lambda create-function --function-name FirstFunction --zip-file fileb://target/first_lambda_function-1.0-SNAPSHOT.jar --handler funcoes.FirstFunction::handleRequest --runtime java11 --role arn:aws:iam::406012689480:role/role_lambda_fullaccess
+
+invoke-lambda-function
+aws lambda invoke --function-name arn:aws:lambda:us-east-1:406012689480:function:FirstFunction --invocation-type RequestResponse /tmp/outfile.txt
+
+update-lambda-function
+aws lambda update-function-code --function-name FirstFunction --zip-file fileb://target/first_lambda_function-1.0-SNAPSHOT.jar
