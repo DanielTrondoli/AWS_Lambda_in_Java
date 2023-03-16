@@ -1,0 +1,11 @@
+create-lambda-function
+aws lambda create-function --function-name EmployeeDynamoDBFunction --zip-file fileb://target/DynamoDBAddFunction-1.0-SNAPSHOT.jar --handler functions.EmployeeDynamoDBFunction::handleRequest --runtime java11 --role arn:aws:iam::406012689480:role/dynamodb_FullAccess
+
+update-lambda-function-code
+aws lambda update-function-code --function-name EmployeeDynamoDBFunction --zip-file fileb://target/LambdaWithDynamoDB-1.0.jar
+
+update-lambda-function-configuration
+aws lambda update-function-configuration --function-name EmployeeDynamoDBFunction --handler function.DynamoDbHandler::handleRequest
+
+update-lambda-function-configuration
+aws lambda update-function-configuration --function-name EmployeeDynamoDBFunction --role arn:aws:iam::406012689480:role/DynamoDBEmployeeAccess
